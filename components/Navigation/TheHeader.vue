@@ -2,7 +2,7 @@
   <div class="header-container">
     <header class="header">
       <div class="nav-wrapper">
-        <div class="logo">
+        <div class="logo" @click="toggleAnim(), (displaySidenav = false)">
           <nuxt-link to="/"
             ><img
               src="https://www.24sata.hr/dist/img/logo-without-border.6cf8d912.svg"
@@ -12,9 +12,13 @@
         <div class="navigation-items">
           <ul class="flex">
             <li class="nav-item">
+              <nuxt-link to="/" exact>AKTUALNO</nuxt-link>
+            </li>
+            <li class="nav-item">
               <nuxt-link to="/najnovije">NAJNOVIJE</nuxt-link>
             </li>
             <li class="nav-item"><nuxt-link to="/news">NEWS</nuxt-link></li>
+            <li class="nav-item"><nuxt-link to="/show">SHOW</nuxt-link></li>
             <li class="nav-item"><nuxt-link to="/sport">SPORT</nuxt-link></li>
             <li class="nav-item">
               <nuxt-link to="/lifestyle">LIFESTYLE</nuxt-link>

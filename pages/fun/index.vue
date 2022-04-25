@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <main>
-      <h1>Aktualno</h1>
+      <h1>Fun</h1>
 
       <div v-for="feed in feeds" :key="feed.id">
         <TheFeed :feed="feed" />
@@ -18,7 +18,6 @@ import RSSParser from 'rss-parser'
 export default {
   name: 'IndexPage',
   components: { TheFeed },
-
   data() {
     return {
       feeds: [],
@@ -32,7 +31,7 @@ export default {
     fetchData() {
       this.parser.parseURL(
         ' https://cors-anywhere.herokuapp.com/' +
-          'https://www.24sata.hr/feeds/aktualno.xml',
+          'https://www.24sata.hr/feeds/fun.xml',
         (err, feed) => {
           if (err) throw err
           this.feeds = feed.items
@@ -43,15 +42,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.main-container {
-  width: 100%;
-}
-
-main {
-  max-width: 970px;
-  min-height: 100vh;
-  margin: 0 auto;
-}
-</style>

@@ -4,22 +4,25 @@
       <div class="sidenav">
         <ul class="nav-list w-1/5" @click="$emit('close')">
           <li class="nav-item">
-            <nuxt-link to="/najnovije" class="nav-link">najnovije</nuxt-link>
+            <nuxt-link to="/najnovije" class="nav-link">NAJNOVIJE</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/news" class="nav-link">news</nuxt-link>
+            <nuxt-link to="/news" class="nav-link">NEWS</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/sport" class="nav-link">sport</nuxt-link>
+            <nuxt-link to="/news" class="nav-link">SHOW</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/lifestyle" class="nav-link">lifestyle</nuxt-link>
+            <nuxt-link to="/sport" class="nav-link">SPORT</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/tech" class="nav-link">tech</nuxt-link>
+            <nuxt-link to="/lifestyle" class="nav-link">LIFESTYLE</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/fun" class="nav-link">fun</nuxt-link>
+            <nuxt-link to="/tech" class="nav-link">TECH</nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link to="/fun" class="nav-link">FUN</nuxt-link>
           </li>
         </ul>
       </div>
