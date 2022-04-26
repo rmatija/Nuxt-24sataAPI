@@ -1,23 +1,25 @@
 <template>
   <div class="main-container">
     <main>
-      <h1>Aktualno</h1>
-
-      <div v-for="feed in feeds" :key="feed.id">
-        <TheFeed :feed="feed" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div v-for="feed in feeds" :key="feed.id">
+          <TheFeed :feed="feed" />
+        </div>
       </div>
+      <ScrollToTopButton />
     </main>
   </div>
 </template>
 
 <script>
 import TheFeed from '@/components/Feed/TheFeed'
+import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTopButton'
 
 import RSSParser from 'rss-parser'
 
 export default {
   name: 'IndexPage',
-  components: { TheFeed },
+  components: { TheFeed, ScrollToTopButton },
 
   data() {
     return {
@@ -44,14 +46,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.main-container {
-  width: 100%;
-}
-
-main {
-  max-width: 970px;
-  min-height: 100vh;
-  margin: 0 auto;
-}
-</style>
+<style lang="scss" scoped></style>

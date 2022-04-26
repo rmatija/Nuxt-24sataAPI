@@ -1,40 +1,42 @@
 <template>
-  <div class="header-container">
-    <header class="header">
-      <div class="nav-wrapper">
-        <div class="logo" @click="toggleAnim(), (displaySidenav = false)">
-          <nuxt-link to="/"
-            ><img
-              src="https://www.24sata.hr/dist/img/logo-without-border.6cf8d912.svg"
-              alt="24sata-logo"
-          /></nuxt-link>
+  <div class="header">
+    <div class="header-container">
+      <header class="header-wrapper">
+        <div class="nav-wrapper">
+          <div class="logo" @click="toggleAnim(), (displaySidenav = false)">
+            <nuxt-link to="/"
+              ><img
+                src="https://www.24sata.hr/dist/img/logo-without-border.6cf8d912.svg"
+                alt="24sata-logo"
+            /></nuxt-link>
+          </div>
+          <div class="navigation-items">
+            <ul class="flex">
+              <li class="nav-item">
+                <nuxt-link to="/" exact>AKTUALNO</nuxt-link>
+              </li>
+              <li class="nav-item">
+                <nuxt-link to="/najnovije">NAJNOVIJE</nuxt-link>
+              </li>
+              <li class="nav-item"><nuxt-link to="/news">NEWS</nuxt-link></li>
+              <li class="nav-item"><nuxt-link to="/show">SHOW</nuxt-link></li>
+              <li class="nav-item"><nuxt-link to="/sport">SPORT</nuxt-link></li>
+              <li class="nav-item">
+                <nuxt-link to="/lifestyle">LIFESTYLE</nuxt-link>
+              </li>
+              <li class="nav-item"><nuxt-link to="/tech">TECH</nuxt-link></li>
+              <li class="nav-item"><nuxt-link to="/fun">FUN</nuxt-link></li>
+            </ul>
+          </div>
+          <TheSidenavToggle @toggle="sidenavToggle()" ref="mySidenavToggle" />
         </div>
-        <div class="navigation-items">
-          <ul class="flex">
-            <li class="nav-item">
-              <nuxt-link to="/" exact>AKTUALNO</nuxt-link>
-            </li>
-            <li class="nav-item">
-              <nuxt-link to="/najnovije">NAJNOVIJE</nuxt-link>
-            </li>
-            <li class="nav-item"><nuxt-link to="/news">NEWS</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to="/show">SHOW</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to="/sport">SPORT</nuxt-link></li>
-            <li class="nav-item">
-              <nuxt-link to="/lifestyle">LIFESTYLE</nuxt-link>
-            </li>
-            <li class="nav-item"><nuxt-link to="/tech">TECH</nuxt-link></li>
-            <li class="nav-item"><nuxt-link to="/fun">FUN</nuxt-link></li>
-          </ul>
-        </div>
-        <TheSidenavToggle @toggle="sidenavToggle()" ref="mySidenavToggle" />
-      </div>
 
-      <TheSidenav
-        :show="displaySidenav"
-        @close="toggleAnim(), (displaySidenav = false)"
-      />
-    </header>
+        <TheSidenav
+          :show="displaySidenav"
+          @close="toggleAnim(), (displaySidenav = false)"
+        />
+      </header>
+    </div>
   </div>
 </template>
 
@@ -65,36 +67,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header-container {
-  height: 60px;
-  max-width: 970px;
-  margin: 0 auto;
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  background-color: #fff;
 
-  .header {
-    width: 100%;
-    position: fixed;
-    height: 60px;
-    z-index: 100;
+  .header-container {
+    height: 70px;
+    border-bottom: 2px solid gray;
 
-    .nav-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .header-wrapper {
+      position: relative;
       max-width: 970px;
-      background: #fff;
+      height: 70px;
+      margin: 0 auto;
+      padding: 10px;
 
-      .navigation-items {
-        display: none;
+      .nav-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 970px;
 
-        .nav-item {
-          margin: 0 10px;
-          color: #000;
+        .navigation-items {
+          display: none;
 
-          a {
-            &:hover,
-            &:active,
-            &.nuxt-link-active {
-              color: red;
+          .nav-item {
+            padding: 12px;
+            color: #000;
+
+            a {
+              &.nuxt-link-active {
+                color: red;
+                border-bottom: 2px solid red;
+              }
+              color: #000;
+              text-transform: uppercase;
+              font-weight: 700;
+              display: inline-block;
+              transition: all 0.2s;
+
+              &:hover {
+                transform: skewY(1deg) skewX(-15deg) scale(1.1);
+                border-bottom: 2px solid red;
+              }
             }
           }
         }
@@ -102,10 +121,12 @@ export default {
     }
   }
   @media (min-width: 768px) {
-    .header {
-      .nav-wrapper {
-        .navigation-items {
-          display: block;
+    .header-container {
+      .header-wrapper {
+        .nav-wrapper {
+          .navigation-items {
+            display: block;
+          }
         }
       }
     }

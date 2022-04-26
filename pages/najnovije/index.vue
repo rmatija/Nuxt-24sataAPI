@@ -1,22 +1,25 @@
 <template>
   <div class="main-container">
     <main>
-      <h1>Najnovije</h1>
-
-      <div v-for="feed in feeds" :key="feed.id">
-        <TheFeed :feed="feed" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div v-for="feed in feeds" :key="feed.id">
+          <TheFeed :feed="feed" />
+        </div>
       </div>
+      <ScrollToTopButton />
     </main>
   </div>
 </template>
 
 <script>
 import TheFeed from '@/components/Feed/TheFeed'
+import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTopButton'
+
 import RSSParser from 'rss-parser'
 
 export default {
   name: 'Najnovije',
-  components: { TheFeed },
+  components: { TheFeed, ScrollToTopButton },
   data() {
     return {
       feeds: [],

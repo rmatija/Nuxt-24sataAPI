@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+
+* {
+  font-family: 'Fira sans', sans-serif;
+}
+
+body {
+  background-color: #edeeee;
+}
 .main-container {
   width: 100%;
+  margin-top: 70px;
 
   main {
     max-width: 970px;

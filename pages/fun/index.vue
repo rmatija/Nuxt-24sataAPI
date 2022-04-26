@@ -1,11 +1,12 @@
 <template>
   <div class="main-container">
     <main>
-      <h1>Fun</h1>
-
-      <div v-for="feed in feeds" :key="feed.id">
-        <TheFeed :feed="feed" />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div v-for="feed in feeds" :key="feed.id">
+          <TheFeed :feed="feed" />
+        </div>
       </div>
+      <ScrollToTopButton />
     </main>
   </div>
 </template>
@@ -14,10 +15,11 @@
 import TheFeed from '@/components/Feed/TheFeed'
 
 import RSSParser from 'rss-parser'
+import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTopButton.vue'
 
 export default {
   name: 'IndexPage',
-  components: { TheFeed },
+  components: { TheFeed, ScrollToTopButton },
   data() {
     return {
       feeds: [],
