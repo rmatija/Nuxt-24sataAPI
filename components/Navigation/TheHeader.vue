@@ -26,6 +26,9 @@
               </li>
               <li class="nav-item"><nuxt-link to="/tech">TECH</nuxt-link></li>
               <li class="nav-item"><nuxt-link to="/fun">FUN</nuxt-link></li>
+              <li class="nav-item">
+                <nuxt-link to="/login"><fa icon="user" /></nuxt-link>
+              </li>
             </ul>
           </div>
           <TheSidenavToggle @toggle="sidenavToggle()" ref="mySidenavToggle" />
@@ -84,7 +87,7 @@ export default {
       max-width: 970px;
       height: 70px;
       margin: 0 auto;
-      padding: 10px;
+      padding: 15px 30px;
 
       .nav-wrapper {
         display: flex;
@@ -121,6 +124,14 @@ export default {
     }
   }
   @media (min-width: 768px) {
+    .header-container {
+      .header-wrapper {
+        padding: 10px;
+      }
+    }
+  }
+
+  @media (min-width: 900px) {
     .header-container {
       .header-wrapper {
         .nav-wrapper {

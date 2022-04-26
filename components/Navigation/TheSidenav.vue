@@ -1,28 +1,32 @@
 <template>
   <div v-if="show" class="sidenav-container">
+    <div v-if="show" class="sidenav-back" @click="$emit('close')"></div>
     <transition name="slide-side">
       <div class="sidenav">
         <ul class="nav-list w-1/5" @click="$emit('close')">
           <li class="nav-item">
-            <nuxt-link to="/najnovije" class="nav-link">NAJNOVIJE</nuxt-link>
+            <nuxt-link to="/najnovije" class="nav-link">Najnovije</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/news" class="nav-link">NEWS</nuxt-link>
+            <nuxt-link to="/news" class="nav-link">News</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/news" class="nav-link">SHOW</nuxt-link>
+            <nuxt-link to="/news" class="nav-link">Show</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/sport" class="nav-link">SPORT</nuxt-link>
+            <nuxt-link to="/sport" class="nav-link">Sport</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/lifestyle" class="nav-link">LIFESTYLE</nuxt-link>
+            <nuxt-link to="/lifestyle" class="nav-link">Lifestyle</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/tech" class="nav-link">TECH</nuxt-link>
+            <nuxt-link to="/tech" class="nav-link">Tech</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/fun" class="nav-link">FUN</nuxt-link>
+            <nuxt-link to="/fun" class="nav-link">Fun</nuxt-link>
+          </li>
+          <li class="nav-item">
+            <nuxt-link to="/login"><fa icon="user" /></nuxt-link>
           </li>
         </ul>
       </div>
@@ -47,17 +51,28 @@ export default {
   height: 100%;
   width: 100%;
 
+  .sidenav-back {
+    width: 100%;
+    height: 100%;
+    height: calc(100vh - 60px);
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 5;
+    position: fixed;
+    top: 70px;
+    left: 0;
+  }
+
   .sidenav {
     position: fixed;
     height: calc(100vh - 60px);
     height: 100%;
-    width: 100%;
+    width: 400px;
     background-color: rgb(243 243 243);
     z-index: 10;
-    top: 60px;
+    top: 70px;
     right: 0;
     left: 0;
-    padding: 30px;
+    padding: 45px;
     transform: translateX(0);
 
     .slide-side-enter-active,
@@ -83,24 +98,6 @@ export default {
           text-decoration: none;
           color: #000;
           font-size: 1.5rem;
-
-          &::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: red;
-            transition: width 0.3s;
-          }
-
-          &:hover::after {
-            width: 100%;
-          }
-
-          &:hover,
-          &:active {
-            color: red;
-          }
         }
       }
     }
