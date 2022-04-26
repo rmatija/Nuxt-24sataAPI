@@ -15,32 +15,20 @@
 import TheFeed from '@/components/Feed/TheFeed'
 import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTopButton'
 
-import RSSParser from 'rss-parser'
+import fetchData from '@/composables/fetchData'
 
 export default {
   name: 'Show',
   components: { TheFeed, ScrollToTopButton },
+  extends: fetchData,
   data() {
     return {
-      feeds: [],
-      parser: new RSSParser(),
+      url: 'https://www.24sata.hr/feeds/show.xml',
     }
   },
+
   mounted: function () {
-    this.fetchData()
-  },
-  methods: {
-    fetchData() {
-      this.parser.parseURL(
-        ' https://cors-anywhere.herokuapp.com/' +
-          'https://www.24sata.hr/feeds/show.xml',
-        (err, feed) => {
-          if (err) throw err
-          this.feeds = feed.items
-          console.log(feed.items)
-        }
-      )
-    },
+    this.fetchData(this.url)
   },
 }
 </script>

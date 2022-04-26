@@ -15,17 +15,15 @@
       <span class="category font-bold" :class="changeBackground">{{
         feed.categories[0]
       }}</span>
-      <p
-        class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2"
-      >
-        {{ feed.pubDate }}
+      <p class="date text-sm text-gray-700 font-semibold mt-2">
+        {{ changeDate }}
       </p>
-      <h3 class="font-semibold text-lg leading-tight truncate">
+      <h3 class="font-semibold text-xl leading-tight truncate">
         {{ feed.title }}
       </h3>
       <p class="mt-2">{{ removeTags(feed.content) }}...</p>
       <a :href="feed.link" target="_blank" class="mt-4"
-        ><button class="read-more">Pročitaj više...</button></a
+        ><span class="read-more">Pročitaj više...</span></a
       >
       <p class="text-sm text-gray-700 tracking-wide font-semibold mt-2">
         Autor: {{ feed.creator }}
@@ -37,6 +35,11 @@
 <script>
 export default {
   props: ['feed'],
+  data() {
+    return {
+      date: this.feed.isoDate,
+    }
+  },
   methods: {
     removeTags(str) {
       if (str === null || str === '') {
@@ -57,6 +60,19 @@ export default {
       else if (this.feed.categories[0] == 'Lifestyle') return 'bg-pink'
       else if (this.feed.categories[0] == 'News') return 'bg-news'
       else return 'bg-purple'
+    },
+    changeDate() {
+      var options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: '2-digit',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+      }
+
+      this.date = new Date()
+      return this.date.toLocaleDateString('hr-HR', options)
     },
   },
 }
@@ -92,6 +108,12 @@ h3 {
 
   &:hover::after {
     width: 100%;
+  }
+}
+
+.date {
+  &::first-letter {
+    text-transform: uppercase;
   }
 }
 
