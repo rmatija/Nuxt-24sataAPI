@@ -1,8 +1,8 @@
 <template>
   <button
-    @click="$emit('toggle'), $emit('toggleAnim', toggleTrans())"
+    @click="$emit('toggle')"
     class="hamburger-menu"
-    :class="clicked ? 'open' : ''"
+    :class="displaySidenav ? 'open' : ''"
   >
     <div>
       <span></span>
@@ -15,16 +15,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      clicked: false,
-    }
-  },
-  methods: {
-    toggleTrans() {
-      this.clicked = !this.clicked
-    },
-  },
+  props: ['displaySidenav'],
 }
 </script>
 

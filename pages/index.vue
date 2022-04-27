@@ -14,10 +14,11 @@
 <script>
 import TheFeed from '@/components/Feed/TheFeed'
 import ScrollToTopButton from '@/components/ScrollToTop/ScrollToTopButton'
+
 import fetchData from '@/composables/fetchData'
 
 export default {
-  name: 'IndexPage',
+  name: 'Aktualno',
   components: { TheFeed, ScrollToTopButton },
   extends: fetchData,
   data() {

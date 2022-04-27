@@ -52,4 +52,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  transition: {
+    name: 'fade',
+    mode: 'out-in',
+  },
 }

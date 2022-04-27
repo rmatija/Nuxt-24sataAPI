@@ -63,6 +63,7 @@ export default {
     display: block;
     margin: 20px 0 10px;
   }
+
   input {
     width: 100%;
     padding: 10px;
@@ -72,6 +73,7 @@ export default {
     color: #999;
     margin: 10px auto;
   }
+
   span {
     font-weight: bold;
     text-decoration: underline;

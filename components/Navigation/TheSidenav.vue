@@ -1,9 +1,12 @@
 <template>
-  <div v-if="show" class="sidenav-container">
+  <div class="sidenav-container">
     <div v-if="show" class="sidenav-back" @click="$emit('close')"></div>
-    <transition name="slide-side">
-      <div class="sidenav">
+    <transition name="fade" mode="out-in">
+      <div v-if="show" class="sidenav">
         <ul class="nav-list w-1/5" @click="$emit('close')">
+          <li class="nav-item">
+            <nuxt-link to="/" class="nav-link">Aktualno</nuxt-link>
+          </li>
           <li class="nav-item">
             <nuxt-link to="/najnovije" class="nav-link">Najnovije</nuxt-link>
           </li>
@@ -37,6 +40,10 @@
 <script>
 export default {
   name: 'TheSidenav',
+  transition: {
+    name: 'fade',
+    mode: 'out-in',
+  },
   props: {
     show: {
       type: Boolean,
@@ -54,8 +61,7 @@ export default {
   .sidenav-back {
     width: 100%;
     height: 100%;
-    height: calc(100vh - 60px);
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 5;
     position: fixed;
     top: 70px;
@@ -65,21 +71,17 @@ export default {
   .sidenav {
     position: fixed;
     height: calc(100vh - 60px);
-    height: 100%;
-    width: 400px;
+    max-width: 300px;
     background-color: rgb(243 243 243);
     z-index: 10;
     top: 70px;
-    right: 0;
     left: 0;
     padding: 45px;
-    transform: translateX(0);
 
     .slide-side-enter-active,
     .slide-side-leave-active {
       transition: all 0.3s ease-out;
     }
-
     .slide-side-enter,
     .slide-side-leave-to {
       transform: translateX(-100%);

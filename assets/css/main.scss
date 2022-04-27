@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 
 * {
   font-family: 'Fira sans', sans-serif;
@@ -7,6 +7,7 @@
 body {
   background-color: #edeeee;
 }
+
 .main-container {
   width: 100%;
   margin-top: 70px;
@@ -16,4 +17,13 @@ body {
     min-height: 100vh;
     margin: 0 auto;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }

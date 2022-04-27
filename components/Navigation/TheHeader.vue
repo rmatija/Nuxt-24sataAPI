@@ -3,7 +3,7 @@
     <div class="header-container">
       <header class="header-wrapper">
         <div class="nav-wrapper">
-          <div class="logo" @click="toggleAnim(), (displaySidenav = false)">
+          <div class="logo" @click="displaySidenav = false">
             <nuxt-link to="/"
               ><img
                 src="https://www.24sata.hr/dist/img/logo-without-border.6cf8d912.svg"
@@ -31,13 +31,13 @@
               </li>
             </ul>
           </div>
-          <TheSidenavToggle @toggle="sidenavToggle()" ref="mySidenavToggle" />
+          <TheSidenavToggle
+            @toggle="sidenavToggle()"
+            :displaySidenav="displaySidenav"
+          />
         </div>
 
-        <TheSidenav
-          :show="displaySidenav"
-          @close="toggleAnim(), (displaySidenav = false)"
-        />
+        <TheSidenav :show="displaySidenav" @close="displaySidenav = false" />
       </header>
     </div>
   </div>
@@ -61,9 +61,6 @@ export default {
   methods: {
     sidenavToggle() {
       this.displaySidenav = !this.displaySidenav
-    },
-    toggleAnim() {
-      this.$refs.mySidenavToggle.toggleTrans()
     },
   },
 }
