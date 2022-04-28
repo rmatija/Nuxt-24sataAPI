@@ -120,6 +120,7 @@ export default {
       }
     }
   }
+
   @media (min-width: 768px) {
     .header-container {
       .header-wrapper {
@@ -128,7 +129,7 @@ export default {
     }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1024px) {
     .header-container {
       .header-wrapper {
         .nav-wrapper {

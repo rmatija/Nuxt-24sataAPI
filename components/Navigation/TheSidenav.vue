@@ -76,7 +76,9 @@ export default {
     z-index: 10;
     top: 70px;
     left: 0;
+    right: 0;
     padding: 45px;
+    overflow-y: scroll;
 
     .slide-side-enter-active,
     .slide-side-leave-active {
@@ -102,6 +104,12 @@ export default {
           font-size: 1.5rem;
         }
       }
+    }
+  }
+  @media (min-width: 1023px) {
+    .sidenav-back,
+    .sidenav {
+      display: none;
     }
   }
 }
